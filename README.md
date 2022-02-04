@@ -9,3 +9,7 @@ This project is quite large, so there are multiple objectives. They are summariz
 - Running a full navigation pipeline in simulation using ROS2.
 - Customizing the existing code for better performance (e.g., using g2o's factor graphs)
 - Implementing the software on a real physical robot.
+
+# Resources
+- [Automatic Addison](https://automaticaddison.com/) ROS2 Navigation Stack [Guide](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/).
+- [Allison Thackston](https://www.allisonthackston.com/articles/vscode-docker-ros2.html)
