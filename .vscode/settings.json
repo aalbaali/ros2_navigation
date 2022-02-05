@@ -37,6 +37,7 @@
         "**/log": true
     },
     "cSpell.words": [
+        "RTPS",
         "athackst",
         "autopep",
         "cmake",
