@@ -10,6 +10,18 @@ This project is quite large, so there are multiple objectives. They are summariz
 - Customizing the existing code for better performance (e.g., using g2o's factor graphs)
 - Implementing the software on a real physical robot.
 
+# Building `Nav2` from source
+The `Nav2` repo is listed in the [`src/ros2.repos`](src/ros2.repos) file.
+1. Clone the repository by runnnign the VSC task *import from workspace file*.
+1. Install necessary dependencies by running the VSC task *install dependencies*.
+1. Build packages by running the VSC task *build*.
+1. Open a *new* terminal (it'll automatically source the workspace) and have fun!
+
+To test, [run](https://automaticaddison.com/how-to-install-ros-2-navigation-nav2/#:~:text=cd%20~/nav2_ws-,ros2%20launch%20nav2_bringup%20tb3_simulation_launch.py,-rviz2%20will%20open)
+```bash
+ros2 launch nav2_bringup tb3_simulation_launch.py
+```
+
 # Sourcing workspaces
 It's possible to source multiple workspaces on the same system. For example, it's possible to have a workspace at `~/nav2_ws/` and another at `~/dev_ws`.
 
@@ -44,6 +56,7 @@ Sourcing the overlay overrides sourcing the underlay. Thus, sourcing `~/nav2_ws`
 # cd to workspace root (e.g., ~/nav2_ws)
 rosdep install -i --from-path src --rosdistro foxy -y
 ```
+
 # Resources
 - [Automatic Addison](https://automaticaddison.com/) ROS2 Navigation Stack [Guide](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/).
 - [Allison Thackston](https://www.allisonthackston.com/articles/vscode-docker-ros2.html).
