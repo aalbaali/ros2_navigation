@@ -45,7 +45,9 @@ jobs:
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          if [[ $(ls -R src/ | grep .py | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
+          && apt-get update \
+          && apt-get install ripgrep \
+          if [[ $(ls -R src/ | rg "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
           && ament_${{ matrix.linter }} src/
           "
 
@@ -68,5 +70,8 @@ jobs:
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          if [[ $(ls -R src/ | grep .cpp | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi && ament_${{ matrix.linter }} src/
+          && apt-get update \
+          && apt-get install ripgrep \
+          if [[ $(ls -R src/ | rg "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi \
+          && ament_${{ matrix.linter }} src/
           "
