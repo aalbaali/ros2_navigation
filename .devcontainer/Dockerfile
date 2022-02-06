@@ -7,6 +7,8 @@ RUN apt-get update \
    && apt -y install --no-install-recommends ros-foxy-nav2-bringup \
    && apt -y install --no-install-recommends ros-foxy-turtlebot3* \
    && apt -y install --no-install-recommends ros-foxy-slam-toolbox \
+   && apt -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
+   && apt -y install --no-install-recommends ros-foxy-xacro \
    #
    # Clean up
    && apt-get autoremove -y \
@@ -22,3 +24,7 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 RUN echo "export TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
 RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
+
+# Source colcon_cd
+RUN echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/ros/.bashrc
+RUN echo "export _colcon_cd_root=${WORKSPACE}" >> /home/ros/.bashrc
