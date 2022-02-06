@@ -3,12 +3,12 @@ FROM althack/ros2:foxy-gazebo-nvidia
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
    && apt-get -y install --no-install-recommends ripgrep \
-   && apt -y install --no-install-recommends ros-foxy-navigation2 \
-   && apt -y install --no-install-recommends ros-foxy-nav2-bringup \
-   && apt -y install --no-install-recommends ros-foxy-turtlebot3* \
-   && apt -y install --no-install-recommends ros-foxy-slam-toolbox \
-   && apt -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
-   && apt -y install --no-install-recommends ros-foxy-xacro \
+   && apt-get -y install --no-install-recommends ros-foxy-navigation2 \
+   && apt-get -y install --no-install-recommends ros-foxy-nav2-bringup \
+   && apt-get -y install --no-install-recommends ros-foxy-turtlebot3* \
+   && apt-get -y install --no-install-recommends ros-foxy-slam-toolbox \
+   && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
+   && apt-get -y install --no-install-recommends ros-foxy-xacro \
    #
    # Clean up
    && apt-get autoremove -y \
