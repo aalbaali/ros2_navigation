@@ -45,7 +45,7 @@ jobs:
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          if [[ $(ls -R src/ | grep "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
+          if [[ $(ls -R src/ | grep .py | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
           && ament_${{ matrix.linter }} src/
           "
 
@@ -68,6 +68,5 @@ jobs:
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          if [[ $(ls -R src/ | grep "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi \
-          && ament_${{ matrix.linter }} src/
+          if [[ $(ls -R src/ | grep .cpp | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi && ament_${{ matrix.linter }} src/
           "
