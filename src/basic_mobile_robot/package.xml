@@ -16,7 +16,7 @@
 
   <!-- Followed instructions from https://automaticaddison.com/how-to-create-a-simulated-mobile-robot-in-ros-2-using-urdf/#:~:text=After%20the%20%3Cbuildtool_depend%3E%20tag%2C%20add%20the%20following%20lines%3A -->
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>rviz</exec_depend>
+  <exec_depend>rviz2</exec_depend>
   <exec_depend>xacro</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
