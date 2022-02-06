@@ -1,5 +1,5 @@
 {
-    "editor.tabSize": 8,
+    "editor.tabSize": 2,
     "editor.rulers": [
         100
     ],
@@ -37,6 +37,7 @@
         "**/log": true
     },
     "cSpell.words": [
+        "RTPS",
         "athackst",
         "autopep",
         "cmake",

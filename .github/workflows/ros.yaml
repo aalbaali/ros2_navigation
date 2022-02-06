@@ -6,14 +6,14 @@ on:
   workflow_dispatch:
     
 jobs:
-  test:
+  run-docker:
     runs-on: ubuntu-latest
     steps:
       - 
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: Test
+        name: run-docker
         run: |
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
@@ -25,8 +25,8 @@ jobs:
           && colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Release' -Wall -Wextra -Wpedantic \
           && colcon test \
           "
-  lint:
-    name: ament_${{ matrix.linter }}
+  lint-source:
+    name: src_ament_${{ matrix.linter }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -37,11 +37,12 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
+        # Lint only if a src/ contains directories
         name: Run linter
         run: |
+          if [[ $(ls -A src/ -I "ros2.repos" | wc -l) -eq 0 ]]; then echo "src/ is empty"; exit 0; fi
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          vcs import --skip-existing < src/ros2.repos src \
-          && ament_${{ matrix.linter }} src/
+          ament_${{ matrix.linter }} src/
           "
