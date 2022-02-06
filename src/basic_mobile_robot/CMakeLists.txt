@@ -23,11 +23,10 @@ find_package(ament_cmake REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # install(
-  #   DIRECTORY config launch maps meshes models params rviz src worlds
-  #   DESTINATION share/${PROJECT_NAME}
-  # )
-  
+  install(
+    DIRECTORY config launch maps meshes models params rviz src worlds
+    DESTINATION share/${PROJECT_NAME}
+  )
   # the following line skips the linter which checks for copyrights
   # uncomment the line when a copyright and license is not present in all source files
   #set(ament_cmake_copyright_FOUND TRUE)

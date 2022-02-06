@@ -57,6 +57,10 @@ Sourcing the overlay overrides sourcing the underlay. Thus, sourcing `~/nav2_ws`
 rosdep install -i --from-path src --rosdistro foxy -y
 ```
 
+# `EMPTY_DIR` files
+Git does not support uploading empty directories, but some of these directories are needed for a successful test.
+As such, empty directories that are required to be uploaded to Github are populated with an empty file named `EMPTY_DIR`.
+
 # Resources
 - [Automatic Addison](https://automaticaddison.com/) ROS2 Navigation Stack [Guide](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/).
 - [Allison Thackston](https://www.allisonthackston.com/articles/vscode-docker-ros2.html).
