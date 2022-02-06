@@ -16,15 +16,25 @@ RUN apt-get update \
    && rm -rf /var/lib/apt/lists/*
 ENV DEBIAN_FRONTEND=dialog
 
+# Add aliases
+#   Git
+RUN echo -e "\nalias gll='git log --graph --oneline --all --decorate'" >> ~/.bashrc
+RUN echo "alias gs='git status'" >> ~/.bashrc
+RUN echo "alias gm='git commit'" >> ~/.bashrc
+RUN echo "alias ga='git add'" >> ~/.bashrc
+RUN echo "alias gb='git branch'" >> ~/.bashrc
+RUN echo "alias gc='git checkout'" >> ~/.bashrc
+RUN echo -e "\n" >> ~/.bashrc
+
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
 
 # Gazebe setup
-RUN echo "export TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
+RUN echo -e "\nexport TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
 RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
 
 # Source colcon_cd
-RUN echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/ros/.bashrc
+RUN echo -e "\nsource /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/ros/.bashrc
 RUN echo "export _colcon_cd_root=${WORKSPACE}" >> /home/ros/.bashrc
