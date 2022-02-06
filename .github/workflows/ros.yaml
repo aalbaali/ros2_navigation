@@ -42,13 +42,13 @@ jobs:
         name: Run linter
         run: |
           if [[ $(ls -A src/ -I "ros2.repos" | wc -l) -eq 0 ]]; then echo "src/ is empty"; exit 0; fi
-          if [[ $(ls -R src/ | rg "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          ament_${{ matrix.linter }} src/
+          if [[ $(ls -R src/ | rg "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
+          && ament_${{ matrix.linter }} src/
           "
-          
+
   lint-source-cpp:
     name: src_ament_${{ matrix.linter }}
     runs-on: ubuntu-latest
@@ -65,9 +65,9 @@ jobs:
         name: Run linter
         run: |
           if [[ $(ls -A src/ -I "ros2.repos" | wc -l) -eq 0 ]]; then echo "src/ is empty"; exit 0; fi
-          if [[ $(ls -R src/ | rg "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi
           docker build -t $GITHUB_REPOSITORY -f ./.devcontainer/Dockerfile .
           docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE $GITHUB_REPOSITORY \
           bash -c "
-          ament_${{ matrix.linter }} src/
+          if [[ $(ls -R src/ | rg "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi \
+          && ament_${{ matrix.linter }} src/
           "
