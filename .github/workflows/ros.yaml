@@ -47,7 +47,7 @@ jobs:
           bash -c "
           && apt-get update \
           && apt-get install ripgrep \
-          if [[ $(ls -R src/ | rg "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi \
+          if [[ $(ls -R src/ | rg "\\.(py|pyc)$" | wc -l) -eq 0 ]]; then echo "No Python files"; exit 0; fi; \
           && ament_${{ matrix.linter }} src/
           "
 
@@ -72,6 +72,6 @@ jobs:
           bash -c "
           && apt-get update \
           && apt-get install ripgrep \
-          if [[ $(ls -R src/ | rg "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi \
+          if [[ $(ls -R src/ | rg "\\.(cpp|cc|h|hpp)$" | wc -l) -eq 0 ]]; then echo "No C++ files"; exit 0; fi; \
           && ament_${{ matrix.linter }} src/
           "
