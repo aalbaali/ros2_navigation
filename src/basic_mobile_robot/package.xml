@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>basic_mobile_robot</name>
+  <version>0.0.0</version>
+  <description>
+    Package that provides a URDF to describe a robot.
+    Followed instructions from https://automaticaddison.com/how-to-create-a-simulated-mobile-robot-in-ros-2-using-urdf/
+  </description>
+  <maintainer email="albaalia@live.com">ros</maintainer>
+  <license>aalbaali</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>joint_state_publisher</exec_depend>
+
+  <!-- Followed instructions from https://automaticaddison.com/how-to-create-a-simulated-mobile-robot-in-ros-2-using-urdf/#:~:text=After%20the%20%3Cbuildtool_depend%3E%20tag%2C%20add%20the%20following%20lines%3A -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
