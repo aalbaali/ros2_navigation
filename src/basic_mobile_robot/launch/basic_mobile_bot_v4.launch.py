@@ -17,9 +17,9 @@ def generate_launch_description():
 
     # Set the path to different files and folders.
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')
-    pkg_share = FindPackageShare(package='basic_mobile_robot').find('basic_mobile_robot')
+    pkg_share = FindPackageShare(package='basic_mobile_robot').find('basic_mobile_robot')  # noqa: E501
     # default_launch_dir = os.path.join(pkg_share, 'launch')
-    default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v2.urdf')
+    default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v2.urdf')  # noqa: E501
     robot_localization_file_path = os.path.join(pkg_share, 'config/ekf.yaml')
     # robot_name_in_urdf = 'basic_mobile_bot'
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
@@ -81,14 +81,14 @@ def generate_launch_description():
 
     # Start Gazebo server
     start_gazebo_server_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
+        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),  # noqa: E501
         condition=IfCondition(use_simulator),
         launch_arguments={'world': world}.items())
 
     # Start Gazebo client
     start_gazebo_client_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')),
-        condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless])))
+        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')),  # noqa: E501
+        condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless])))  # noqa: E501
 
     # Start robot localization using an Extended Kalman filter
     start_robot_localization_cmd = Node(
@@ -99,7 +99,7 @@ def generate_launch_description():
         parameters=[robot_localization_file_path,
                     {'use_sim_time': use_sim_time}])
 
-    # Subscribe to the joint states of the robot, and publish the 3D pose of each link.
+    # Subscribe to the joint states of the robot, and publish the 3D pose of each link.  # noqa: E501
     start_robot_state_publisher_cmd = Node(
         condition=IfCondition(use_robot_state_pub),
         package='robot_state_publisher',
