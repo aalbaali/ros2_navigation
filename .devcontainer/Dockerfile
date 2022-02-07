@@ -10,6 +10,7 @@ RUN apt-get update \
    && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
    && apt-get -y install --no-install-recommends ros-foxy-xacro \
    && apt-get -y install --no-install-recommends ros-foxy-rqt-robot-steering \
+   && apt-get -y install --no-install-recommends ros-foxy-robot-localization \
    #
    # Clean up
    && apt-get autoremove -y \
