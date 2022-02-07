@@ -17,9 +17,9 @@ def generate_launch_description():
 
     # Set the path to different files and folders.
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')
-    pkg_share = FindPackageShare(package='basic_mobile_robot').find('basic_mobile_robot')
+    pkg_share = FindPackageShare(package='basic_mobile_robot').find('basic_mobile_robot')  # noqa: E501
     # default_launch_dir = os.path.join(pkg_share, 'launch')
-    default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v1.urdf')
+    default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v1.urdf')  # noqa: E501
     # robot_name_in_urdf = 'basic_mobile_bot'
     default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
     world_file_name = 'basic_mobile_bot_world/smalltown.world'
@@ -89,9 +89,9 @@ def generate_launch_description():
     start_gazebo_client_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch',
                                       'gzclient.launch.py')),
-        condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless])))
+        condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless])))  # noqa: E501
 
-    # Subscribe to the joint states of the robot, and publish the 3D pose of each link.
+    # Subscribe to the joint states of the robot, and publish the 3D pose of each link. # noqa: E501
     start_robot_state_publisher_cmd = Node(
         condition=IfCondition(use_robot_state_pub),
         package='robot_state_publisher',
