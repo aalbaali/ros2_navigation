@@ -9,6 +9,7 @@ RUN apt-get update \
    && apt-get -y install --no-install-recommends ros-foxy-slam-toolbox \
    && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
    && apt-get -y install --no-install-recommends ros-foxy-xacro \
+   && apt-get -y install --no-install-recommends ros-foxy-rqt-robot-steering \
    #
    # Clean up
    && apt-get autoremove -y \
@@ -32,7 +33,11 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 
 # Gazebe setup
 RUN echo -e "\nexport TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
+
+# Gazebo model paths
 RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
+RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspaces/ros2_navigation/src/basic_mobile_robot/models/" >> /home/ros/.bashrc
+
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
 
 # Source colcon_cd
