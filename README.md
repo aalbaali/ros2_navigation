@@ -56,6 +56,10 @@ Sourcing the overlay overrides sourcing the underlay. Thus, sourcing `~/nav2_ws`
 # cd to workspace root (e.g., ~/nav2_ws)
 rosdep install -i --from-path src --rosdistro foxy -y
 ```
+- Check topics verbosely
+```bash
+ros2 topic info <topic-name> -v
+```
 
 # `EMPTY_DIR` files
 Git does not support uploading empty directories, but some of these directories are needed for a successful test.
