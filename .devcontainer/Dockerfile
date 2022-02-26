@@ -44,6 +44,9 @@ RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspaces/ros2_navigatio
 
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
 
+# Colcon autocomplete (https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#setup-colcon-tab-completion)
+RUN echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+
 # Source colcon_cd
 RUN echo "\nsource /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/ros/.bashrc
 RUN echo "export _colcon_cd_root=${WORKSPACE}" >> /home/ros/.bashrc
