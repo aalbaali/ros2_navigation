@@ -67,14 +67,21 @@
         },
         // Linting and static code analysis tasks
         {
-            "label": "fix",
+            "label": "fix all",
             "detail": "Reformat files with uncrustify.",
             "type": "shell",
             "command": "ament_uncrustify --reformat src/",
             "problemMatcher": []
         },
         {
-            "label": "uncrustify",
+            "label": "fix file",
+            "detail": "Reformat files with uncrustify.",
+            "type": "shell",
+            "command": "ament_uncrustify --reformat ${file}",
+            "problemMatcher": []
+        },
+        {
+            "label": "uncrustify all",
             "detail": "Lint files with uncrustify.",
             "type": "shell",
             "command": "ament_uncrustify src/",
@@ -99,9 +106,36 @@
                   ]
                 }
             ]
-        },
+        },        
         {
-            "label": "cpplint",
+            "label": "uncrustify file",
+            "detail": "Lint files with uncrustify.",
+            "type": "shell",
+            "command": "ament_uncrustify ${file}",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "uncrustify",
+                    "source": " uncrustify",
+                    "fileLocation": "relative",
+                    "pattern": [
+                    /// just the file name message
+                        {
+                            "regexp": "^(.*)'(.*)':",
+                            "kind": "file",
+                            "file": 2,
+                            "message": 1
+                        },
+                  ]
+                }
+            ]
+        },        
+        {
+            "label": "cpplint all",
             "detail": "Lint files with cpplint.",
             "type": "shell",
             "command": "ament_cpplint src/",
@@ -128,7 +162,34 @@
             ]
         },
         {
-            "label": "cppcheck",
+            "label": "cpplint file",
+            "detail": "Lint files with cpplint.",
+            "type": "shell",
+            "command": "ament_cpplint ${file}",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "cpplint",
+                    "source": " cpplint",
+                    "fileLocation": "absolute",
+                    "pattern": [
+                        {
+                            "regexp": "^(.+):(\\d+):\\s+(.+)\\[(.+)\\]$",
+                            "file": 1,
+                            "line": 2,
+                            "message": 3,
+                            "code": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "cppcheck all",
             "detail": "Run static code checker cppcheck.",
             "type": "shell",
             "command": "ament_cppcheck src/",
@@ -153,10 +214,60 @@
             ]
         },
         {
-            "label": "lint_cmake",
+            "label": "cppcheck file",
+            "detail": "Run static code checker cppcheck.",
+            "type": "shell",
+            "command": "ament_cppcheck ${file}",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "cppcheck",
+                    "source": "cppcheck",
+                    "pattern": [
+                        {
+                            "regexp": "^\\[(.+):(\\d+)\\]:\\s+(.+)$",
+                            "file": 1,
+                            "line": 2,
+                            "message": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "lint_cmake all",
             "detail": "Run lint on cmake files.",
             "type": "shell",
             "command": "ament_lint_cmake src/",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "lint_cmake",
+                    "source": "lint_cmake",
+                    "pattern": [
+                        {
+                            "regexp": "^(.+):(\\d+):\\s+(.+)$",
+                            "file": 1,
+                            "line": 2,
+                            "message": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "lint_cmake file",
+            "detail": "Run lint on cmake files.",
+            "type": "shell",
+            "command": "ament_lint_cmake ${file}",
             "presentation": {
                 "panel": "dedicated",
                 "reveal": "silent",
@@ -231,10 +342,37 @@
             ]
         },
         {
-            "label": "xmllint",
+            "label": "xmllint all",
             "detail": "Run xmllint on xml files.",
             "type": "shell",
             "command": "ament_xmllint src/",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "xmllint",
+                    "source": "xmllint",
+                    "fileLocation": "absolute",
+                    "pattern": [
+                        {
+                            "regexp": "^(.+):(\\d+):\\s+(.+)\\s+:\\s+(.+)$",
+                            "file": 1,
+                            "line": 2,
+                            "code": 3,
+                            "message": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "xmllint file",
+            "detail": "Run xmllint on xml files.",
+            "type": "shell",
+            "command": "ament_xmllint ${file}",
             "presentation": {
                 "panel": "dedicated",
                 "reveal": "silent",
