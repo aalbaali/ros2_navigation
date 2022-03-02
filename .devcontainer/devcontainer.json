@@ -37,6 +37,8 @@
 		"smilerobotics.urdf",
 		"streetsidesoftware.code-spell-checker",
 		"twxs.cmake",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+    "cschlosser.doxdocgen",
+    "akiramiyakoda.cppincludeguard"
 	]
 }

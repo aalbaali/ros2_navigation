@@ -76,8 +76,11 @@
 
     //  File copyright documentation tag.  Array of strings will be converted to one line per element.  Can template {year}.
   "doxdocgen.file.copyrightTag": [
-    "Amro Al-Baali {year}"
+    "Copyright {year} Ⓒ Amro Al-Baali"
   ],
+  "doxdocgen.generic.boolReturnsTrueFalse": false,
+  "doxdocgen.generic.paramTemplate": "@param[in] {param} ",
+
   //  Set the e-mail address of the author.  Replaces {email}.
   "doxdocgen.generic.authorEmail": "albaalia@live.com",
   // Set the name of the author.  Replaces {author}.
@@ -89,7 +92,6 @@
   // The format to use for the date.
   "doxdocgen.generic.dateFormat": "YYYY-MMM-DD",
   "doxdocgen.file.fileOrder": [
-    "custom",
     "copyright",
     "file",
     "brief",
@@ -99,4 +101,10 @@
     // "empty",
   ],
   "cSpell.blockCheckingWhenAverageChunkSizeGreaterThan": 100,
+  "C/C++ Include Guard.Macro Type": "Filepath",
+  "C/C++ Include Guard.Comment Style": "Line",
+  "C/C++ Include Guard.Path Skip": 1,
+  "C/C++ Include Guard.Spaces After Endif": 1,
+  "C/C++ Include Guard.Suffix": "_",
+  "C/C++ Include Guard.Remove Extension": false,
 }
