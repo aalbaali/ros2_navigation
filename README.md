@@ -22,6 +22,11 @@ To test, [run](https://automaticaddison.com/how-to-install-ros-2-navigation-nav2
 ros2 launch nav2_bringup tb3_simulation_launch.py
 ```
 
+## Launch files
+If using a launch file, then
+- [include](https://docs.ros.org/en/foxy/Tutorials/Launch/Creating-Launch-Files.html#:~:text=a%20later%20tutorial.-,Note,-For%20packages%20with) `<exec_depend>ros2launch</exec_depend>` in the `package.xml`.
+- Capture the launch file within the `setup.py` file as is done [here](https://github.com/ros/geometry_tutorials/blob/37420516b9aa4feb3d6d2f7566643dea2fd9fa7a/turtle_tf2_py/setup.py#L15).
+
 # Sourcing workspaces
 It's possible to source multiple workspaces on the same system. For example, it's possible to have a workspace at `~/nav2_ws/` and another at `~/dev_ws`.
 
@@ -55,6 +60,10 @@ Sourcing the overlay overrides sourcing the underlay. Thus, sourcing `~/nav2_ws`
 ```bash
 # cd to workspace root (e.g., ~/nav2_ws)
 rosdep install -i --from-path src --rosdistro foxy -y
+```
+- Check topics verbosely
+```bash
+ros2 topic info <topic-name> -v
 ```
 
 # `EMPTY_DIR` files

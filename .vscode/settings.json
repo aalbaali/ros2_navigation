@@ -73,4 +73,30 @@
     ],
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
+
+    //  File copyright documentation tag.  Array of strings will be converted to one line per element.  Can template {year}.
+  "doxdocgen.file.copyrightTag": [
+    "Amro Al-Baali {year}"
+  ],
+  //  Set the e-mail address of the author.  Replaces {email}.
+  "doxdocgen.generic.authorEmail": "albaalia@live.com",
+  // Set the name of the author.  Replaces {author}.
+  "doxdocgen.generic.authorName": "Amro Al-Baali",
+  // The template of the brief Doxygen line that is generated. If empty it won't get generated at all.
+  "doxdocgen.generic.briefTemplate": "@brief {text}",
+  // Additional file documentation. One tag per line will be added. Can template `{year}`, `{date}`, `{author}`, `{email}` and `{file}`. You have to specify the prefix.
+  // "doxdocgen.file.customTag": [],
+  // The format to use for the date.
+  "doxdocgen.generic.dateFormat": "YYYY-MMM-DD",
+  "doxdocgen.file.fileOrder": [
+    "custom",
+    "copyright",
+    "file",
+    "brief",
+    "author",
+    // "version",
+    "date",
+    // "empty",
+  ],
+  "cSpell.blockCheckingWhenAverageChunkSizeGreaterThan": 100,
 }
