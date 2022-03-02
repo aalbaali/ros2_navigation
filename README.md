@@ -63,5 +63,7 @@ As such, empty directories that are required to be uploaded to Github are popula
 
 # Resources
 - [Automatic Addison](https://automaticaddison.com/) ROS2 Navigation Stack [Guide](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/).
+  - [Adding GPS](https://automaticaddison.com/category/robotics/page/15/)
 - [Allison Thackston](https://www.allisonthackston.com/articles/vscode-docker-ros2.html).
 - [Nav2](https://navigation.ros.org/getting_started/index.html#running-the-example) package.
+- [ROS frames](https://www.ros.org/reps/rep-0105.html)
