@@ -54,3 +54,6 @@ RUN echo "export _colcon_cd_root=${WORKSPACE}" >> /home/ros/.bashrc
 RUN echo "complete -W \"\$(colcon_cd && colcon list | awk '{print \$1}')\" colcon_cd" >> /home/ros/.bashrc
 RUN echo "alias ccd=\"colcon_cd \$@\"" >> /home/ros/.bashrc
 RUN echo "complete -W \"\$(ccd && colcon list | awk '{print \$1}')\" ccd" >> /home/ros/.bashrc
+
+# Add custom workstation tools
+RUN mkdir -p /home/ros/Dev
