@@ -14,6 +14,7 @@ RUN apt-get update \
    && apt-get -y install --no-install-recommends ros-foxy-tf2-tools \
    && apt-get -y install --no-install-recommends ros-foxy-tf-transformations \
    && pip3 install --no-input transforms3d \
+   && pip3 install --no-input pre-commit \
    #
    # Clean up
    && apt-get autoremove -y \
@@ -54,6 +55,9 @@ RUN echo "export _colcon_cd_root=${WORKSPACE}" >> /home/ros/.bashrc
 RUN echo "complete -W \"\$(colcon_cd && colcon list | awk '{print \$1}')\" colcon_cd" >> /home/ros/.bashrc
 RUN echo "alias ccd=\"colcon_cd \$@\"" >> /home/ros/.bashrc
 RUN echo "complete -W \"\$(ccd && colcon list | awk '{print \$1}')\" ccd" >> /home/ros/.bashrc
+
+# Add pre-commit-config installed path
+RUN echo "export PATH=\"/home/ros/.local/bin:$PATH\"" >> ~/.bashrc
 
 # Add custom workstation tools
 RUN mkdir -p /home/ros/Dev
