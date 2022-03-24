@@ -178,5 +178,64 @@
   "C/C++ Include Guard.Suffix": "_",
   "C/C++ Include Guard.Remove Extension": false,
   "clang-tidy.buildPath": "/workspaces/ros2_navigation/build/",
-  "clang-tidy.lintOnSave": false
+  "clang-tidy.lintOnSave": false,
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      // "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false,
+      "multiline": true
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "--",
+      "color": "#37B8CC",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false,
+      "multiline": false
+    },
+  ]
 }
