@@ -4,6 +4,13 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    {
+      "name": "ROS: Launch",
+      "type": "ros",
+      "request": "launch",
+      "target": "/workspaces/ros2_navigation/src/basic_mobile_robot/launch/basic_mobile_bot_v1.launch.py"
+    },
+
     // Example launch of a python file
     {
       "name": "Python: Current File",
