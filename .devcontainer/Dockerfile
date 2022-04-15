@@ -1,19 +1,20 @@
-FROM althack/ros2:foxy-gazebo-nvidia
+FROM althack/ros2:galactic-gazebo-nvidia
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
    && apt-get -y install --no-install-recommends ripgrep \
    && apt-get -y install --no-install-recommends meld \
-   && apt-get -y install --no-install-recommends ros-foxy-navigation2 \
-   && apt-get -y install --no-install-recommends ros-foxy-nav2-bringup \
-   && apt-get -y install --no-install-recommends ros-foxy-turtlebot3* \
-   && apt-get -y install --no-install-recommends ros-foxy-slam-toolbox \
-   && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
-   && apt-get -y install --no-install-recommends ros-foxy-xacro \
-   && apt-get -y install --no-install-recommends ros-foxy-rqt-robot-steering \
-   && apt-get -y install --no-install-recommends ros-foxy-robot-localization \
-   && apt-get -y install --no-install-recommends ros-foxy-tf2-tools \
-   && apt-get -y install --no-install-recommends ros-foxy-tf-transformations \
+   && apt-get -y install --no-install-recommends ros-galactic-ament-clang-format \
+   && apt-get -y install --no-install-recommends ros-galactic-navigation2 \
+   && apt-get -y install --no-install-recommends ros-galactic-nav2-bringup \
+   && apt-get -y install --no-install-recommends ros-galactic-turtlebot3* \
+   && apt-get -y install --no-install-recommends ros-galactic-slam-toolbox \
+   && apt-get -y install --no-install-recommends ros-galactic-joint-state-publisher-gui \
+   && apt-get -y install --no-install-recommends ros-galactic-xacro \
+   && apt-get -y install --no-install-recommends ros-galactic-rqt-robot-steering \
+   && apt-get -y install --no-install-recommends ros-galactic-robot-localization \
+   && apt-get -y install --no-install-recommends ros-galactic-tf2-tools \
+   && apt-get -y install --no-install-recommends ros-galactic-tf-transformations \
    && pip3 install --no-input transforms3d \
    && pip3 install --no-input pre-commit \
    #
@@ -41,12 +42,12 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 RUN echo "\nexport TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
 
 # Gazebo model paths
-RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
+RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/galactic/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
 RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspaces/ros2_navigation/src/basic_mobile_robot/models/" >> /home/ros/.bashrc
 
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
 
-# Colcon autocomplete (https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#setup-colcon-tab-completion)
+# Colcon autocomplete (https://docs.ros.org/en/galactic/Tutorials/Colcon-Tutorial.html#setup-colcon-tab-completion)
 RUN echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 
 # Source colcon_cd
