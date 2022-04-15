@@ -3,6 +3,7 @@ FROM althack/ros2:foxy-gazebo-nvidia
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
    && apt-get -y install --no-install-recommends ripgrep \
+   && apt-get -y install --no-install-recommends meld \
    && apt-get -y install --no-install-recommends ros-foxy-navigation2 \
    && apt-get -y install --no-install-recommends ros-foxy-nav2-bringup \
    && apt-get -y install --no-install-recommends ros-foxy-turtlebot3* \

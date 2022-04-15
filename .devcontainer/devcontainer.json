@@ -40,6 +40,7 @@
 		"twxs.cmake",
 		"yzhang.markdown-all-in-one",
     "cschlosser.doxdocgen",
-    "akiramiyakoda.cppincludeguard"
+    "akiramiyakoda.cppincludeguard",
+		"xaver.clang-format"
 	]
 }

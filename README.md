@@ -1,5 +1,6 @@
 # In this repo
-This repository is used as a playground to learn [ROS2](https://docs.ros.org/en/foxy/index.html) and the tools needed for it. Specifically, it is used to learn using the [Nav2](https://navigation.ros.org/) ROS2 toolbox.
+This repository is used as a playground to learn [ROS2](https://docs.ros.org/en/foxy/index.html) and the tools needed for it.
+Specifically, it is used to learn using the [Nav2](https://navigation.ros.org/) ROS2 toolbox.
 The software is mainly written in C++.
 
 # Objectives
