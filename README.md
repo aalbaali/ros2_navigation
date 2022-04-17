@@ -1,5 +1,6 @@
 # In this repo
-This repository is used as a playground to learn [ROS2](https://docs.ros.org/en/foxy/index.html) and the tools needed for it. Specifically, it is used to learn using the [Nav2](https://navigation.ros.org/) ROS2 toolbox.
+This repository is used as a playground to learn [ROS2](https://docs.ros.org/en/foxy/index.html) and the tools needed for it.
+Specifically, it is used to learn using the [Nav2](https://navigation.ros.org/) ROS2 toolbox.
 The software is mainly written in C++.
 
 # Objectives
@@ -21,6 +22,11 @@ To test, [run](https://automaticaddison.com/how-to-install-ros-2-navigation-nav2
 ```bash
 ros2 launch nav2_bringup tb3_simulation_launch.py
 ```
+
+## Launch files
+If using a launch file, then
+- [include](https://docs.ros.org/en/foxy/Tutorials/Launch/Creating-Launch-Files.html#:~:text=a%20later%20tutorial.-,Note,-For%20packages%20with) `<exec_depend>ros2launch</exec_depend>` in the `package.xml`.
+- Capture the launch file within the `setup.py` file as is done [here](https://github.com/ros/geometry_tutorials/blob/37420516b9aa4feb3d6d2f7566643dea2fd9fa7a/turtle_tf2_py/setup.py#L15).
 
 # Sourcing workspaces
 It's possible to source multiple workspaces on the same system. For example, it's possible to have a workspace at `~/nav2_ws/` and another at `~/dev_ws`.
@@ -66,6 +72,7 @@ Git does not support uploading empty directories, but some of these directories 
 As such, empty directories that are required to be uploaded to Github are populated with an empty file named `EMPTY_DIR`.
 
 # Resources
+- [Colcon test tools](https://github.com/aalbaali/colcon_test_tools) for running colcon unit tests
 - [Automatic Addison](https://automaticaddison.com/) ROS2 Navigation Stack [Guide](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/).
   - [Adding GPS](https://automaticaddison.com/category/robotics/page/15/)
 - [Allison Thackston](https://www.allisonthackston.com/articles/vscode-docker-ros2.html).

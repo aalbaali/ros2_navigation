@@ -13,7 +13,8 @@
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-		"--gpus" "all",
+		"--gpus",
+    "all",
 	],
 	"containerEnv": { "DISPLAY": "${localEnv:DISPLAY}"},
 
@@ -37,6 +38,9 @@
 		"smilerobotics.urdf",
 		"streetsidesoftware.code-spell-checker",
 		"twxs.cmake",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+    "cschlosser.doxdocgen",
+    "akiramiyakoda.cppincludeguard",
+		"xaver.clang-format"
 	]
 }

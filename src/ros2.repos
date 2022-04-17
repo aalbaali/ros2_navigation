@@ -1,10 +1,9 @@
 repositories:
-  # navigation2:
-  #   type: git
-  #   url: https://github.com/ros-planning/navigation2.git
-  #   version: galactic
-  
-  robot_localization:
+  ros_tutorials:
     type: git
-    url: https://github.com/cra-ros-pkg/robot_localization
+    url: https://github.com/ros/ros_tutorials.git
+    version: foxy-devel
+  turtle_nav_cpp:
+    type: git
+    url: git@github.com:aalbaali/turtle_nav_cpp.git
     version: galactic
