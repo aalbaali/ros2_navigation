@@ -63,12 +63,12 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 RUN echo "\nexport TURTLEBOT3_MODEL=waffle" >> /home/ros/.bashrc
 
 # Gazebo model paths
-RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/foxy/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
+RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/galactic/share/turtlebot3_gazebo/models" >> /home/ros/.bashrc
 RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/workspaces/ros2_navigation/src/basic_mobile_robot/models/" >> /home/ros/.bashrc
 
 RUN echo "source /usr/share/gazebo/setup.sh" >> /home/ros/.bashrc
 
-# Colcon autocomplete (https://docs.ros.org/en/foxy/Tutorials/Colcon-Tutorial.html#setup-colcon-tab-completion)
+# Colcon autocomplete (https://docs.ros.org/en/galactic/Tutorials/Colcon-Tutorial.html#setup-colcon-tab-completion)
 RUN echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 
 # Source colcon_cd
