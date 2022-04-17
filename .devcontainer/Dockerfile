@@ -2,26 +2,48 @@ FROM althack/ros2:foxy-gazebo-nvidia
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-   && apt-get -y install --no-install-recommends ripgrep \
-   && apt-get -y install --no-install-recommends meld \
-   && apt-get -y install --no-install-recommends ros-foxy-navigation2 \
-   && apt-get -y install --no-install-recommends ros-foxy-nav2-bringup \
-   && apt-get -y install --no-install-recommends ros-foxy-turtlebot3* \
-   && apt-get -y install --no-install-recommends ros-foxy-slam-toolbox \
-   && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
-   && apt-get -y install --no-install-recommends ros-foxy-xacro \
-   && apt-get -y install --no-install-recommends ros-foxy-rqt-robot-steering \
-   && apt-get -y install --no-install-recommends ros-foxy-robot-localization \
-   && apt-get -y install --no-install-recommends ros-foxy-tf2-tools \
-   && apt-get -y install --no-install-recommends ros-foxy-tf-transformations \
-   && pip3 install --no-input transforms3d \
-   && pip3 install --no-input pre-commit \
-   #
-   # Clean up
-   && apt-get autoremove -y \
-   && apt-get clean -y \
-   && rm -rf /var/lib/apt/lists/*
+  && apt-get -y install software-properties-common \
+  && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
+  && apt-get -y install --no-install-recommends g++-11 \
+  && apt-get -y install --no-install-recommends ripgrep \
+  && apt-get -y install --no-install-recommends meld \
+  && apt-get -y install --no-install-recommends ros-foxy-navigation2 \
+  && apt-get -y install --no-install-recommends ros-foxy-nav2-bringup \
+  && apt-get -y install --no-install-recommends ros-foxy-turtlebot3* \
+  && apt-get -y install --no-install-recommends ros-foxy-slam-toolbox \
+  && apt-get -y install --no-install-recommends ros-foxy-joint-state-publisher-gui \
+  && apt-get -y install --no-install-recommends ros-foxy-xacro \
+  && apt-get -y install --no-install-recommends ros-foxy-rqt-robot-steering \
+  && apt-get -y install --no-install-recommends ros-foxy-robot-localization \
+  && apt-get -y install --no-install-recommends ros-foxy-tf2-tools \
+  && apt-get -y install --no-install-recommends ros-foxy-tf-transformations \
+  && pip3 install --no-input transforms3d \
+  && pip3 install --no-input pre-commit \
+  #
+  # Clean up
+  && apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/*
 ENV DEBIAN_FRONTEND=dialog
+
+# Link the g++ binaries to g++-11 to make it the default compiler
+# https://stackoverflow.com/questions/7832892/how-to-change-the-default-gcc-compiler-in-ubuntu
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 100
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 50
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 50
+RUN update-alternatives --install /usr/bin/cpp cpp-bin /usr/bin/cpp-11 100
+RUN update-alternatives --install /usr/bin/cpp cpp-bin /usr/bin/cpp-9 50
+RUN update-alternatives --set g++ /usr/bin/g++-11
+RUN update-alternatives --set gcc /usr/bin/gcc-11
+
+# The following line was part of the suggested snippet in the link attached above. However, I'm not
+# sure what it's doing or what it's used for so I'm not using it but keeping it here for reference.
+# sudo update-alternatives --set cpp-bin /usr/bin/cpp-11
+
+# Set default CXX variables
+# ENV CXX=/usr/bin/g++
+
 
 # Add aliases
 #   Git
