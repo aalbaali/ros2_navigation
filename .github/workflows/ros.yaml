@@ -11,7 +11,7 @@ jobs:
     steps:
       - 
         name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.2
       -
         name: run-docker
         run: |
@@ -36,7 +36,7 @@ jobs:
     steps:
       - 
         name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.2
       -
         # Lint only if a src/ contains directories
         name: Run linter
@@ -58,7 +58,7 @@ jobs:
     steps:
       - 
         name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.2
       -
         # Lint only if a src/ contains directories
         name: Run linter
